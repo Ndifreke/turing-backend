@@ -2,9 +2,9 @@
 import '@babel/polyfill';
 import request from 'supertest';
 
-import app, { server } from '../..';
-import { Product, Department } from '../../database/models';
-import truncate from '../../test/helpers';
+import app, { server } from '..';
+import { Product, Department } from '../database/models';
+import truncate from '../test/helpers';
 
 describe('product controller', () => {
   let product;
@@ -29,7 +29,7 @@ describe('product controller', () => {
   });
 
   describe('getAllProducts', () => {
-    it('should return a list of products', done => {
+    it('should return a list of products', async done => {
       request(app)
         .get('/products?page=3&search=the&limit=30')
         .set('Content-Type', 'application/json')
@@ -43,7 +43,7 @@ describe('product controller', () => {
   });
 
   describe('getProduct', () => {
-    it('should get the details of a product', done => {
+    it('should get the details of a product', async done => {
       request(app)
         .get(`/products/${product.product_id}`)
         .set('Content-Type', 'application/json')
@@ -54,7 +54,7 @@ describe('product controller', () => {
         });
     });
 
-    it('should return appropriate status if product is not found', done => {
+    it('should return appropriate status if product is not found', async done => {
       request(app)
         .get('/products/999999')
         .set('Content-Type', 'application/json')
@@ -66,7 +66,7 @@ describe('product controller', () => {
   });
 
   describe('getAllDepartments', () => {
-    it('should return a list of departments', done => {
+    it('should return a list of departments', async done => {
       request(app)
         .get('/departments')
         .set('Content-Type', 'application/json')
@@ -79,7 +79,7 @@ describe('product controller', () => {
   });
 
   describe('getDepartment', () => {
-    it('should get the details of a department', done => {
+    it('should get the details of a department', async done => {
       request(app)
         .get(`/departments/${department.department_id}`)
         .set('Content-Type', 'application/json')
@@ -90,7 +90,7 @@ describe('product controller', () => {
         });
     });
 
-    it('should return appropriate status if department is not found', done => {
+    it('should return appropriate status if department is not found', async done => {
       request(app)
         .get('/departments/999999')
         .set('Content-Type', 'application/json')

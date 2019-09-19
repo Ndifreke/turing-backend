@@ -8,20 +8,19 @@ import expressValidator from 'express-validator';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import helmet from 'helmet';
-import cors from 'cors';
+// import cors from 'cors';
 import router from './routes';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
 
 const app = express();
-const corsOptions = {
-  credentials: true,
-  origin: [],
-  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-app.use(cors(corsOptions));
-
+// const corsOptions = {
+//   credentials: true,
+//   origin: [],
+//   optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+// };
+//app.use(cors(corsOptions));
 
 // compression and header security middleware
 app.use(compression());
