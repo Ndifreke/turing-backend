@@ -137,7 +137,6 @@ class ProductController {
    * @memberof ProductController
    */
   static async getProduct(req, res, next) {
-
     const { product_id } = req.params;  // eslint-disable-line
     try {
       const product = await Product.findByPk(product_id, {
@@ -158,7 +157,7 @@ class ProductController {
           },
         ],
       });
-      return res.status(500).json({ message: 'This works!!1' });
+      return res.status(200).json({ message: 'This works!!1' });
     } catch (error) {
       return next(error);
     }
