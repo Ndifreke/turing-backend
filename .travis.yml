@@ -1,0 +1,15 @@
+language: node_js
+nodejs:
+  - node
+services:
+  - mysql
+install:
+  - npm install
+script:
+- npm run test
+- bash <(curl -s https://codecov.io/bash)
+#- npm run coveralls
+before_install:
+  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+after_success:
+  - codecov

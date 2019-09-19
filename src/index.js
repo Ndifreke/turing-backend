@@ -22,7 +22,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
-
 // compression and header security middleware
 app.use(compression());
 app.use(helmet());

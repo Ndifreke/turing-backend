@@ -2,9 +2,9 @@
 import '@babel/polyfill';
 import request from 'supertest';
 
-import app, { server } from '../..';
-import { Product, Department } from '../../database/models';
-import truncate from '../../test/helpers';
+import app, { server } from '..';
+import { Product, Department } from '../database/models';
+import truncate from '../test/helpers';
 
 describe('product controller', () => {
   let product;
