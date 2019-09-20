@@ -4,11 +4,13 @@ logs
 .DS_Store
 .env
 
+
 npm-debug.log*
 coverage
 
 # Runtime data
 pids
+
 *.pid
 *.seed
 
@@ -40,6 +42,6 @@ node_modules
 .node_repl_history
 
 #Local environment
-.env
+
 dist/
 .vscode
